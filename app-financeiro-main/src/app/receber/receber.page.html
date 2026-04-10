@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="success">
+    <ion-title>Receber</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <ion-card>
+    <ion-card-content>
+      <p><strong>Nome cliente:</strong> {{item.cliente}}</p>
+      <p><strong>Vencimento:</strong> {{item.vencimento}}</p>
+      <p><strong>Pagamento:</strong> {{item.pagamento}}</p>
+      <p><strong>Valor:</strong> R$ {{item.valor}}</p>
+
+      <div class="ion-text-center ion-margin-top">
+        <ion-button fill="outline" color="success" (click)="acaoPlus()">
+          <ion-icon name="add-circle-outline"></ion-icon>
+        </ion-button>
+        
+        <ion-button fill="outline" color="danger" (click)="acaoMinus()">
+          <ion-icon name="remove-circle-outline"></ion-icon>
+        </ion-button>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-list>
+    <ion-list-header>
+      <ion-label>LISTA</ion-label>
+    </ion-list-header>
+    
+    <ion-item *ngFor="let r of listaReceber">
+      <ion-label>
+        <h2>{{r.cliente}}</h2>
+        <p>Vence em: {{r.vencimento}}</p>
+      </ion-label>
+      <ion-note slot="end" color="success">R$ {{r.valor}}</ion-note>
+    </ion-item>
+  </ion-list>
+
+
+
+</ion-content>

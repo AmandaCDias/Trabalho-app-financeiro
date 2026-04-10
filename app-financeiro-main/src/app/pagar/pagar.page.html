@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="danger">
+    <ion-title>Pagar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <ion-card>
+    <ion-card-content>
+      <p><strong>Nome:</strong> {{item.nome}}</p>
+      <p><strong>Vencimento:</strong> {{item.vencimento}}</p>
+      <p><strong>Pagamento:</strong> {{item.pagamento}}</p>
+      <p><strong>Valor:</strong> R$ {{item.valor}}</p>
+
+      <ion-item>
+        <ion-button fill="outline" color="success" (click)="acaoPlus()">
+          <ion-icon name="add-circle-outline"></ion-icon>
+        </ion-button>
+        
+        <ion-button fill="outline" color="dark" (click)="acaoMinus()">
+          <ion-icon name="remove-circle-outline"></ion-icon>
+        </ion-button>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-list>
+    <ion-list-header>
+      <ion-label>LISTA</ion-label>
+    </ion-list-header>
+
+    <ion-item *ngFor="let p of listaPagar">
+      <ion-label>
+        <h2>{{p.nome}}</h2>
+        <p>Vencimento: {{p.vencimento}}</p>
+      </ion-label>
+      <ion-note slot="end" color="danger">R$ {{p.valor}}</ion-note>
+    </ion-item>
+  </ion-list>
+</ion-content>
